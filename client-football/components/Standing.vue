@@ -15,18 +15,10 @@
         <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
           PTS
         </th>
-        <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
-          P
-        </th>
-        <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
-          W
-        </th>
-        <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
-          L
-        </th>
-        <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
-          D
-        </th>
+        <th class="font-semibold text-sm uppercase px-6 py-4 text-center">P</th>
+        <th class="font-semibold text-sm uppercase px-6 py-4 text-center">W</th>
+        <th class="font-semibold text-sm uppercase px-6 py-4 text-center">L</th>
+        <th class="font-semibold text-sm uppercase px-6 py-4 text-center">D</th>
         <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
           GD
         </th>
@@ -40,7 +32,7 @@
               <img
                 class="w-10 h-10 object-cover rounded-full"
                 alt="User avatar"
-                :src="'http://football.test/' + standing.team.logo"
+                :src="mediaUrl + standing.team.logo"
               />
             </div>
             <div>
@@ -95,6 +87,9 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters("standings", ["standings"]),
+    mediaUrl() {
+      return process.env.MEDIA_URL;
+    },
   },
   created() {
     this.$store.dispatch("standings/fetchAll");

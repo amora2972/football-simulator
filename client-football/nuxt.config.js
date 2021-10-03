@@ -37,6 +37,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/dotenv',
     '@nuxtjs/tailwindcss',
   ],
 
@@ -46,7 +47,7 @@ export default {
   ],
 
   axios: {
-    baseURL: 'http://football.test/api',
+    baseURL: process.env.API_BASE_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
